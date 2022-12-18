@@ -5,7 +5,7 @@
 
 # Step 1:
 # Create dockerpath
-dockerpath=quangit/mlp4
+dockerpath=quangit/UdacityCapstone
 
 # Step 2:  
 # Authenticate & tag

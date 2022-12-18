@@ -4,7 +4,7 @@
 
 # Step 1:
 # This is your Docker ID/path
-dockerpath=quangit/mlp4
+dockerpath=quangit/UdacityCapstone
 
 # Step 2
 # Run the Docker Hub container with kubernetes
