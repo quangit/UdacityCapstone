@@ -58,11 +58,11 @@ jobs:
           name: Build, test and push docker image
           command: |
             docker login -u ${DOCKER_USERNAME} -p ${DOCKER_PWD}
-            docker build -t quangit/UdacityCapstone .
+            docker build -t quangit/udacity-capstone-image .
             docker-compose up -d
             sleep 10
             docker image ls
-            docker push quangit/UdacityCapstone:latest
+            docker push quangit/udacity-capstone-image:latest
 
   check-cluster:
     docker:
@@ -124,7 +124,7 @@ workflows:
               - create-deployment
         - aws-eks/update-container-image:
             cluster-name: mycapstone-myweather123456723
-            container-image-updates: 'udacity-capstone=quangit/UdacityCapstone:latest'
+            container-image-updates: 'udacity-capstone=quangit/udacity-capstone-image:latest'
             get-rollout-status: true
             requires:
               - test-deployment

@@ -20,7 +20,7 @@ spec:
         app: udacity-capstone
     spec:
       containers:
-        - image: quangit/UdacityCapstone:latest
+        - image: quangit/udacity-capstone-image:latest
           imagePullPolicy: Always
           name: udacity-capstone
           ports:

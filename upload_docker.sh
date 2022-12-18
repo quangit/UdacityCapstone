@@ -5,7 +5,7 @@
 
 # Step 1:
 # Create dockerpath
-dockerpath=quangit/UdacityCapstone
+dockerpath=quangit/udacity-capstone-image
 
 # Step 2:  
 # Authenticate & tag
