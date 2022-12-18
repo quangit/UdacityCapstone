@@ -51,7 +51,7 @@ jobs:
 
   build-docker:
     machine: true
-    working_directory: ~/app
+    working_directory: ~/repo
     steps:
       - checkout
       - run:
@@ -59,8 +59,6 @@ jobs:
           command: |
             docker login -u ${DOCKER_USERNAME} -p ${DOCKER_PWD}
             docker build -t quangit/udacity-capstone-image .
-            docker-compose up -d
-            sleep 10
             docker image ls
             docker push quangit/udacity-capstone-image:latest
 
