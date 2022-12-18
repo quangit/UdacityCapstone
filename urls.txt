@@ -1,0 +1,2 @@
+Github: https://github.com/quangit/UdacityCapstone
+Website URL: http://a5623cc280a4849f289178b148dfaa15-1377142160.us-east-2.elb.amazonaws.com/

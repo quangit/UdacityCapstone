@@ -106,7 +106,9 @@ workflows:
     default:
       jobs:
         - makelint
-        - build-docker
+        - build-docker:
+            requires:
+              - build-docker
         - aws-eks/create-cluster:
             cluster-name: ${EKS_CLUSTER_NAME}
             requires:
