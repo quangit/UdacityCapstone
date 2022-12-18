@@ -108,7 +108,7 @@ workflows:
         - makelint
         - build-docker:
             requires:
-              - build-docker
+              - makelint
         - aws-eks/create-cluster:
             cluster-name: ${EKS_CLUSTER_NAME}
             requires:
