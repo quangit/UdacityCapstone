@@ -105,32 +105,32 @@ jobs:
 workflows:
     default:
       jobs:
-        - makelint
-        - build-docker:
-            requires:
-              - makelint
-        - aws-eks/create-cluster:
+        # - makelint
+        # - build-docker:
+        #     requires:
+        #       - makelint
+        # - aws-eks/create-cluster:
+        #     cluster-name: ${EKS_CLUSTER_NAME}
+        #     requires:
+        #       - build-docker
+        # - check-cluster:
+        #     requires:
+        #       - aws-eks/create-cluster
+        # - create-deployment:
+        #     requires:
+        #       - check-cluster
+        # - test-deployment:
+        #     requires:
+        #       - create-deployment
+        # - aws-eks/update-container-image:
+        #     cluster-name: ${EKS_CLUSTER_NAME}
+        #     container-image-updates: 'udacity-capstone=quangit/udacity-capstone-image:latest'
+        #     get-rollout-status: true
+        #     requires:
+        #       - test-deployment
+        #     resource-name:  deployment/udacity-capstone
+        - aws-eks/delete-cluster:
             cluster-name: ${EKS_CLUSTER_NAME}
             requires:
-              - build-docker
-        - check-cluster:
-            requires:
-              - aws-eks/create-cluster
-        - create-deployment:
-            requires:
-              - check-cluster
-        - test-deployment:
-            requires:
-              - create-deployment
-        - aws-eks/update-container-image:
-            cluster-name: ${EKS_CLUSTER_NAME}
-            container-image-updates: 'udacity-capstone=quangit/udacity-capstone-image:latest'
-            get-rollout-status: true
-            post-steps:
-            - kubernetes/delete-resource:
-                resource-names: udacity-capstone
-                resource-types: deployment
-                wait: true
-            requires:
-              - test-deployment
-            resource-name:  deployment/udacity-capstone
+              - aws-eks/update-container-image
+
